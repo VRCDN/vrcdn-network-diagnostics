@@ -1,7 +1,7 @@
 # VRCDN Basic Diagnostic Tool
 This is a basic diagnostic tool for VRCDN. It runs some basic network tests on a user's system and returns a PASS or FAIL.
 
- This has been in the works for a while but [@SticksDev](https://github.com/SticksDev) releasing their tool gave me a kick to finish and release this one.
+ This has been in the works for a while but [@SticksDev](https://github.com/SticksDev) releasing their tool gave me a kick to "finish" (this will continue to be updated when fit) and release this one.
 
  > [!NOTE] 
  > As always, this isn't a definitive sign of zero issues if all tests pass, however if a test fails then issues are likely.
