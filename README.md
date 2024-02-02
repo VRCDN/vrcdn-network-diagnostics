@@ -10,7 +10,7 @@ This is a basic diagnostic tool for VRCDN. It runs some basic network tests on a
 There are compiled versions of this tool available under the releases.
 
 ### Usage
-To run the diagnostic tool, use the following command:
+To run the diagnostic tool, either open the EXE directly or use the following command:
 ```cmd
 VRCDN-Network-Diagnostics.exe
 ```
