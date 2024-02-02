@@ -130,3 +130,6 @@ dist
 .pnp.*
 
 builds/
+compile.js
+createRunners.js
+icon.ico

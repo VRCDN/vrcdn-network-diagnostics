@@ -1,11 +1,11 @@
 #!/usr/bin/env -S node --no-warnings=ExperimentalWarning
 
-// read the tests directory and run all .test.js files
 const fs = require("fs");
 const path = require("path");
 const logger = require("./modules/logger.js");
 const os = require("os");
 const readline = require("readline");
+const tracert = require("./modules/tracert.js");
 
 const version = "v1.0.0";
 
@@ -20,7 +20,6 @@ fetch("http://report.api.vrcdn.live")
       );
     }
 
-    // read command line arguments and set an auto-submit flag
     let autoSubmit = false;
     process.argv.forEach((arg, index) => {
       if (arg == "--auto-submit" || arg == "-a") {
@@ -48,21 +47,40 @@ fetch("http://report.api.vrcdn.live")
 
     logger("debug", `Current UTC time: ${new Date().toUTCString()}`);
 
-    // read the tests directory
     const files = fs.readdirSync("./tests");
 
-    // filter out any non-test files
     const testFiles = files.filter((file) => {
       return file.includes(".test.js");
     });
 
     let testRunners = [];
 
-    // run each test file
     testFiles.forEach((file) => {
       logger("info", `Running test: ${file.replace(".test.js", "")}`);
       testRunners.push(require(`./tests/${file}`)());
     });
+
+    // We are doing this because SEA doesn't support dynamic imports, this is created only when building for SEA. This is also done dynamically by the build script not included in the repo.
+    // const testFiles = [
+    //   "find_best_ingest.test.js",
+    //   "find_best_stream.test.js",
+    //   "ingest_dns.test.js",
+    //   "ingest_ping.test.js",
+    //   "stream_dns.test.js",
+    //   "stream_ping.test.js",
+    // ];
+    // logger("info", "Running test: find_best_ingest");
+    // testRunners.push(require("./tests/find_best_ingest.test.js")());
+    // logger("info", "Running test: find_best_stream");
+    // testRunners.push(require("./tests/find_best_stream.test.js")());
+    // logger("info", "Running test: ingest_dns");
+    // testRunners.push(require("./tests/ingest_dns.test.js")());
+    // logger("info", "Running test: ingest_ping");
+    // testRunners.push(require("./tests/ingest_ping.test.js")());
+    // logger("info", "Running test: stream_dns");
+    // testRunners.push(require("./tests/stream_dns.test.js")());
+    // logger("info", "Running test: stream_ping");
+    // testRunners.push(require("./tests/stream_ping.test.js")());
 
     function submitLog() {
       logger("info", "Submitting log to VRCDN...");
@@ -93,10 +111,8 @@ fetch("http://report.api.vrcdn.live")
         });
     }
 
-    // wait for all tests to finish
     Promise.all(testRunners).then((results) => {
       logger("info", "---- Start of test results ----");
-      // check if any tests failed
       results.forEach((result, index) => {
         if (!result) {
           logger(
