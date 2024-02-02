@@ -4,7 +4,7 @@ This is a basic diagnostic tool for VRCDN. It runs some basic network tests on a
  This has been in the works for a while but [@SticksDev](https://github.com/SticksDev) releasing their tool gave me a kick to finish and release this one.
 
  > [!NOTE] 
- > As always this isn't a definitive sign of zero issues if all tests pass, however if a test fails then issues are likely.
+ > As always, this isn't a definitive sign of zero issues if all tests pass, however if a test fails then issues are likely.
 
 ### Installation
 There are compiled versions of this tool available under the releases.
