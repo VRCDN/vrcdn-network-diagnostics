@@ -27,6 +27,8 @@ Log submission is optional, either close the app when asked or enter `N` or `n` 
 These submissions are pushed into a system, that I dub `NetClarity`, that we hope is going to provide us with more insight into how connections to VRCDN are currently being routed and where issues lie.
 We already feed our own data into this system however these are currently `datacenter -> datacenter` when the actual data we need is `Residential/User -> datacenter`.
 
+Logs are handled in accordance with our policies that can be found [here](https://vrcdn.live/policies).
+
 ### Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
