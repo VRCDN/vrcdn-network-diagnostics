@@ -1,4 +1,5 @@
 #!/usr/bin/env -S node --no-warnings=ExperimentalWarning
+// The shebang above is used to silence warnings when compiling native experimental Node SEA. Read more: https://nodejs.org/api/single-executable-applications.html
 
 const fs = require("fs");
 const path = require("path");
@@ -61,26 +62,23 @@ fetch("http://report.api.vrcdn.live")
     });
 
     // We are doing this because SEA doesn't support dynamic imports, this is created only when building for SEA. This is also done dynamically by the build script not included in the repo.
-    // const testFiles = [
-    //   "find_best_ingest.test.js",
-    //   "find_best_stream.test.js",
-    //   "ingest_dns.test.js",
-    //   "ingest_ping.test.js",
-    //   "stream_dns.test.js",
-    //   "stream_ping.test.js",
-    // ];
-    // logger("info", "Running test: find_best_ingest");
-    // testRunners.push(require("./tests/find_best_ingest.test.js")());
-    // logger("info", "Running test: find_best_stream");
-    // testRunners.push(require("./tests/find_best_stream.test.js")());
-    // logger("info", "Running test: ingest_dns");
-    // testRunners.push(require("./tests/ingest_dns.test.js")());
-    // logger("info", "Running test: ingest_ping");
-    // testRunners.push(require("./tests/ingest_ping.test.js")());
-    // logger("info", "Running test: stream_dns");
-    // testRunners.push(require("./tests/stream_dns.test.js")());
-    // logger("info", "Running test: stream_ping");
-    // testRunners.push(require("./tests/stream_ping.test.js")());
+    // const testFiles = ["find_best_ingest.test.js", "find_best_stream.test.js", "ingest_dns.test.js", "ingest_ping.test.js", "stream_dns.test.js", "stream_ping.test.js", "tracert_ingest.test.js", "tracert_stream.test.js"]
+    // logger("info", "Running test: find_best_ingest")
+    // testRunners.push(require('./tests/find_best_ingest.test.js')())
+    // logger("info", "Running test: find_best_stream")
+    // testRunners.push(require('./tests/find_best_stream.test.js')())
+    // logger("info", "Running test: ingest_dns")
+    // testRunners.push(require('./tests/ingest_dns.test.js')())
+    // logger("info", "Running test: ingest_ping")
+    // testRunners.push(require('./tests/ingest_ping.test.js')())
+    // logger("info", "Running test: stream_dns")
+    // testRunners.push(require('./tests/stream_dns.test.js')())
+    // logger("info", "Running test: stream_ping")
+    // testRunners.push(require('./tests/stream_ping.test.js')())
+    // logger("info", "Running test: tracert_ingest")
+    // testRunners.push(require('./tests/tracert_ingest.test.js')())
+    // logger("info", "Running test: tracert_stream")
+    // testRunners.push(require('./tests/tracert_stream.test.js')())
 
     function submitLog() {
       logger("info", "Submitting log to VRCDN...");
