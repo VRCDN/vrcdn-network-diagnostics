@@ -29,7 +29,7 @@ You can also use the following options:
 ```
 
 ### Log submission
-Log submission is optional, either close the app when asked or enter `N` or `n` no answer is considerd to be a yes.
+Log submission is optional, either close the app when asked or enter `N` or `n`, no answer is considerd to be a yes.
 
 These submissions are pushed into a system, that I dub `NetClarity`, that we hope is going to provide us with more insight into how connections to VRCDN are currently being routed and where issues lie.
 We already feed our own data into this system however these are currently `datacenter -> datacenter` when the actual data we need is `Residential/User -> datacenter`.
