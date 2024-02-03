@@ -23,7 +23,7 @@ module.exports = () => {
             }
         }).catch(error => {
             logger("error", `Stream Ping test failed: ${error}`);
-            reject(error);
+            reject(false);
         });
     });
 }

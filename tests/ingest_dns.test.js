@@ -35,16 +35,16 @@ module.exports = () => {
                 resolve(true);
               } else {
                 logger(
-                  "fail",
+                  "warn",
                   `Ingest DNS test failed, local results do not match Google: ${localResults}`
                 );
-                resolve(false);
+                resolve("warn");
               }
             });
           })
           .catch((error) => {
             logger("error", `Ingest DNS test failed: ${error}`);
-            reject(error);
+            reject(false);
           });
     });
 }

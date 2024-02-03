@@ -14,7 +14,7 @@ module.exports = () => {
         })
         .catch((err) => {
           logger("warn", `Failed to run tracert: ${err}`);
-          reject(err);
+          reject(false);
         });
     } else {
       logger("warn", "Tracert is only supported on Windows");

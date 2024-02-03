@@ -117,6 +117,11 @@ fetch("http://report.api.vrcdn.live")
             "fail",
             `Test ${testFiles[index].replace(".test.js", "")} failed`
           );
+        } else if (result === "warn") {
+          logger(
+            "warn",
+            `Test ${testFiles[index].replace(".test.js", "")} warned`
+          );
         } else {
           logger(
             "success",

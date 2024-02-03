@@ -38,16 +38,16 @@ module.exports = () => {
                 resolve(true);
               } else {
                 logger(
-                  "fail",
+                  "warn",
                   `Stream DNS test failed, local results do not match Google: ${localResults}`
                 );
-                resolve(false);
+                resolve("warn");
               }
             });
           })
           .catch((error) => {
             logger("error", `Stream DNS test failed: ${error}`);
-            reject(error);
+            reject(false);
           });
     });
 }

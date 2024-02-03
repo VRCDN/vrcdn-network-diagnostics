@@ -20,7 +20,7 @@ module.exports = () => {
             }
         }).catch(error => {
             logger("error", `Ingest Ping test failed: ${error}`);
-            reject(error);
+            reject(false);
         });
     });
 }
