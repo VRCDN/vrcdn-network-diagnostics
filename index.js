@@ -82,7 +82,7 @@ fetch("http://report.api.vrcdn.live")
 
     function submitLog() {
       logger("info", "Submitting log to VRCDN...");
-      fetch("http://report.api.vrcdn.live/v1/submit", {
+      fetch("https://report.api.vrcdn.live/v1/submit", {
         method: "POST",
         headers: {
           "Content-Type": "text/plain",
