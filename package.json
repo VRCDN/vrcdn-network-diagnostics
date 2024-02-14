@@ -1,6 +1,6 @@
 {
   "name": "vrcdn-basic-diagnostic",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Runs some basic diagnostic tests on a users system for VRCDN",
   "main": "index.js",
   "bin": "index.js",

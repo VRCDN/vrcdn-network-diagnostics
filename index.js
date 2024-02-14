@@ -56,33 +56,18 @@ fetch("http://report.api.vrcdn.live")
 
     let testRunners = [];
 
+    // We are doing this because SEA doesn't support dynamic imports, this is created only when building for SEA. This is also done dynamically by the build script not included in the repo.
+    //const testFiles = ["find_best_ingest.test.js", "find_best_stream.test.js", "ingest_dns.test.js", "ingest_ping.test.js", "stream_dns.test.js", "stream_ping.test.js", "tracert_ingest.test.js", "tracert_stream.test.js"]
+
+    
     testFiles.forEach((file) => {
       logger("info", `Running test: ${file.replace(".test.js", "")}`);
       testRunners.push(require(`./tests/${file}`)());
     });
 
-    // We are doing this because SEA doesn't support dynamic imports, this is created only when building for SEA. This is also done dynamically by the build script not included in the repo.
-    // const testFiles = ["find_best_ingest.test.js", "find_best_stream.test.js", "ingest_dns.test.js", "ingest_ping.test.js", "stream_dns.test.js", "stream_ping.test.js", "tracert_ingest.test.js", "tracert_stream.test.js"]
-    // logger("info", "Running test: find_best_ingest")
-    // testRunners.push(require('./tests/find_best_ingest.test.js')())
-    // logger("info", "Running test: find_best_stream")
-    // testRunners.push(require('./tests/find_best_stream.test.js')())
-    // logger("info", "Running test: ingest_dns")
-    // testRunners.push(require('./tests/ingest_dns.test.js')())
-    // logger("info", "Running test: ingest_ping")
-    // testRunners.push(require('./tests/ingest_ping.test.js')())
-    // logger("info", "Running test: stream_dns")
-    // testRunners.push(require('./tests/stream_dns.test.js')())
-    // logger("info", "Running test: stream_ping")
-    // testRunners.push(require('./tests/stream_ping.test.js')())
-    // logger("info", "Running test: tracert_ingest")
-    // testRunners.push(require('./tests/tracert_ingest.test.js')())
-    // logger("info", "Running test: tracert_stream")
-    // testRunners.push(require('./tests/tracert_stream.test.js')())
-
     function submitLog() {
       logger("info", "Submitting log to VRCDN...");
-      fetch("http://report.api.vrcdn.live/v1/submit", {
+      fetch("https://report.api.vrcdn.live/v1/submit", {
         method: "POST",
         headers: {
           "Content-Type": "text/plain",
@@ -167,5 +152,9 @@ fetch("http://report.api.vrcdn.live")
     });
   })
   .catch((error) => {
-    logger("warn", `Failed to connect to VRCDN Diagnostic API: ${error}`);
+    logger("error", `Failed to connect to VRCDN Diagnostic API: ${error}`);
+    logger("warn", `This may be due to an Anti-Virus or Firewall blocking the connection. Please check your settings and try again.`);
+    setTimeout(() => {
+      process.exit(0);
+    }, 10000);
   });
