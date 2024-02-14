@@ -10,10 +10,17 @@ This is a basic diagnostic tool for VRCDN. It runs some basic network tests on a
 There are compiled versions of this tool available under the releases.
 
 ### Usage
-To run the diagnostic tool, either open the EXE directly or use the following command:
+How do I run the diagnostic tool?
+On Windows you can simply open the exe. If you wish to run from cmd the use the following:
 ```cmd
-VRCDN-Network-Diagnostics.exe
+VRCDN-Network-Diagnostics-win-x64.exe
 ```
+
+On linux you would do the following in a terminal:
+```bash
+./VRCDN-Network-Diagnostics-linux-amd64
+```
+You may need to chmod +x on linux.
 
 You can also use the following options:
 ```
@@ -22,7 +29,7 @@ You can also use the following options:
 ```
 
 ### Log submission
-Log submission is optional, either close the app when asked or enter `N` or `n` no answer is considerd to be a yes.
+Log submission is optional, either close the app when asked or enter `N` or `n`, no answer is considerd to be a yes.
 
 These submissions are pushed into a system, that I dub `NetClarity`, that we hope is going to provide us with more insight into how connections to VRCDN are currently being routed and where issues lie.
 We already feed our own data into this system however these are currently `datacenter -> datacenter` when the actual data we need is `Residential/User -> datacenter`.
