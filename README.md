@@ -1,3 +1,6 @@
+> [!IMPORTANT]
+> This app is not updated and is broken on newer windows versions, due to other more pressing work this is NOT updated. Please use [SticksDev's tool.](https://github.com/SticksDev/VRCDN_NetworkTest)
+
 # VRCDN Basic Diagnostic Tool
 This is a basic diagnostic tool for VRCDN. It runs some basic network tests on a user's system and returns a PASS or FAIL.
 
